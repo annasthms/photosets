@@ -5,6 +5,7 @@
   <title>photoset.css</title>
   <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link href="https://dl.dropbox.com/s/vpi3f9s7nhpe7v7/honeybee.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <style>
@@ -13,14 +14,49 @@
   }
   body {
     font-family: 'Anaheim', Garamond, serif;
-    /* font-family: Garamond, serif; */
   }
   a {
     text-decoration: none;
     color: #183135;
   }
+  article a {
+    font-weight: bold;
+    display: inline-block;
+  }
+  article a::before {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    background: #183135;
+    transition: 0.5s all;
+    transition-delay: 0.05s;
+  }
+  article a::after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background: cornflowerblue;
+    transition: 0.5s all;
+    transition-delay: 0s;
+  }
   a:hover {
     color: #000;
+  }
+  article a:hover::after {
+    width: 100%;
+    transition-delay: 0.05s;
+  }
+  article a:hover::before {
+    width: 0;
+    transition-delay: 0s;
   }
   hr {
     border: none;
@@ -41,16 +77,33 @@
   }
 
   main {
-    width: 700px;
+    width: 725px;
     margin: 3em auto 5em;
+    max-width: 95%;
   }
 
   header, section {
     margin: 3em auto;
   }
   header {
-    /* padding-left: 10px; */
     box-sizing: border-box;
+  }
+  header::before {
+    content: '\e154';
+    font-family: 'honeybee';
+    position: absolute;
+    top: calc(50% - 0.5em);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: palevioletred;
+    font-size: 1.5em;
+  }
+  header::after {
+    content: 'brings you';
+    position: absolute;
+    top: calc(50% + 1em);
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   div#blog-grid {
     display: grid;
@@ -81,14 +134,13 @@
     margin-bottom: 0.3em;
     display: inline-block;
   }
-  .blog .blog-links {
-    /* margin-top: 1em; */
-  }
   div#annasthms.blog .blog-links a {
     margin-right: 0.35em;
+    text-decoration: underline;
   }
   div#espoirthemes.blog .blog-links a {
     margin-left: 0.35em;
+    text-decoration: underline;
   }
 
   section#big-title {
@@ -114,7 +166,6 @@
 
   aside {
     width: 125px;
-    /* margin-top: 3em; */
     position: absolute;
   }
   aside a {
@@ -135,18 +186,15 @@
     position: absolute;
     display: block;
     height: 1px;
-    /* width: 0.75em; */
     width: 0;
     top: 0.65em;
     left: -1em;
-    /* transform: translateY(-50%); */
     background: #000;
     transition: 0.2s width;
   }
   aside a.current small {
     font-weight: normal;
     font-style: italic;
-    /* margin-left: 1em; */
   }
   aside a.current small::before {
     width: 0.75em;
@@ -154,19 +202,56 @@
 
   section#about {
     width: 550px;
-    margin-left: 150px;
+    margin-left: 175px;
   }
   article {
-    margin: 2em 0;
+    margin: 3em 0;
+    box-shadow: 0px 16px 56px 0px rgba(0,0,0,.06);
+    padding: 1em;
+    border-radius: 10px;
+  }
+  h2, h3 {
+    margin-top: 0;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+  h2 + p {
+    margin-top: 0.2em;
+  }
+  .tags {
+    margin-top: 0.75em;
+  }
+  .tags span {
+    display: inline-block;
+    margin-right: 0.5em;
+    padding: 0.25em 0.45em;
+    background: #beefed;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: help;
+  }
+  .tags span:nth-child(2n) {
+    background: #facade;
+  }
+  .tags span:nth-child(3n) {
+    background: skyblue;
+  }
+
+  p#change-log {
+    margin-bottom: 0.35em;
+  }
+  p#change-log ~ p {
+    margin: 0.35em 0;
   }
 
   .style-grid {
     display: grid;
-    grid-template-columns: 390px 150px;
+    grid-template-columns: calc(100% - 160px) 150px;
     grid-column-gap: 10px;
   }
   .style-grid:not(:last-of-type) {
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
   }
   .style-grid pre {
     margin: 0;
@@ -180,6 +265,13 @@
   }
   .photoset-grid img {
     height: 69.5px !important;
+  }
+
+  a#scroll-up {
+    position: fixed;
+    font-size: 0.8em;
+    bottom: 1em;
+    right: 1.5em;
   }
 
   [photoset-layout],[photoset-layout] div,[photoset-layout] img {-webkit-box-sizing:border-box;box-sizing:border-box;}
@@ -256,7 +348,6 @@
     <section id="big-title">
       <div id="intro-grid">
         <div><b>photosets.css</b></div>
-        <!-- <div><i>a stylesheet that lays out all photosets using only CSS grid</i></div> -->
         <div><i>css only custom photosets</i></div>
       </div>
     </section>
@@ -265,7 +356,7 @@
       <a href="#info">information <small>build date, by, etc.</small></a>
       <a href="#install">installation <small>how to use</small></a>
       <a href="#custom">customization <small>how to customize</small></a>
-      <a href="#demo">demos <small>see it in action</small></a>
+      <a href="#demo">demo <small>see it in action</small></a>
       <a href="#lightbox">lightboxes <small>this needs javascript</small></a>
       <a href="#questions">questions? <small>send us feedback or inquiries!</small></a>
     </aside>
@@ -275,23 +366,20 @@
           <h2>photosets.css</h2>
           <p><i>to everyone who balks at having to use javascript and pxu to style photosets, we see you</i></p>
           <p><b>photosets.css</b> is a CSS stylesheet (compiled by JavaScript, ironically) that lays out all photoset layouts using solely CSS and a nifty photosets variable <code>{PhotosetLayout}</code>. The pictures are arranged using the CSS grid layout, though a fallback using inline blocks has been provided, in case anyone is using a browser that doesn’t support CSS grid.</p>
+          <p><a href="#">go to post</a></p>
         </div>
-        <div class="tags">
-          <span>introduction</span>
-          <span>information</span>
-        </div>
+        <div class="tags"><span>introduction</span><span>information</span></div>
       </article>
       <article id="info">
         <div class="text">
-          <b>built:</b> august 19, 2018 <br />
+          <b>built:</b> july 30, 2018 <br />
           <b>by:</b> annasthms, espoirthemes <br />
           <!-- <b>requirements:</b> <br /> -->
           <!-- <b>warning:</b> </b> -->
+          <p id="change-log"><u>change log</u></p>
+          <p>- august 17, 2018: added <code>display:inline-block;</code> fallback for those who don't use browsers that support CSS grid</p>
         </div>
-        <div class="tags">
-          <span>introduction</span>
-          <span>information</span>
-        </div>
+        <div class="tags"><span>introduction</span><span>information</span></div>
       </article>
       <article id="install">
         <div class="text">
@@ -301,10 +389,7 @@
           2. replace the photoset you would've had <!--between <pre class="inline-code"><code class="html">{block:Photoset}...{/block:Photoset}</code></pre> -->(e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
           <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
         </div>
-        <div class="tags">
-          <span>instructions</span>
-          <span>install</span>
-        </div>
+        <div class="tags"><span>instructions</span><span>install</span></div>
       </article>
       <article id="custom">
         <div class="text">
@@ -371,20 +456,114 @@
             </div>
           </div>
         </div>
-        <div class="tags">
-
-        </div>
+        <div class="tags"><span>instructions</span><span>customize</span></div>
       </article>
       <article id="demo">
-
+        <div class="text">
+          <h3><b>Demo</b></h3>
+          <p>Some example photoset stylings:</p>
+          <p data-height="400" data-theme-id="dark" data-slug-hash="RYwVXa" data-default-tab="result" data-user="annasthms" data-pen-title="photosets.css demo" class="codepen">See the Pen <a href="https://codepen.io/annasthms/pen/RYwVXa/">photosets.css demo</a> by anna (<a href="https://codepen.io/annasthms">@annasthms</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+          <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </div>
+        <div class="tags"><span>demo</span></div>
       </article>
       <article id="lightbox">
-
+        <div class="text">
+          <h3><b>Tumblr Lightboxes</b></h3>
+          <p>There is a way to enable native Tumblr lightboxes for the photosets, but be wary that this will necessitate JavaScript. The setup is also a little bit different.</p>
+          1. (this step isn't different from before) under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre> paste
+          <pre class="select"><code class="html">&lt;link href=&quot;https://dl.dropbox.com/s/h0msugnmn4ggbcq/cssOnlyPhotosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
+          2. replace the photoset you would've had <!--between <pre class="inline-code"><code class="html">{block:Photoset}...{/block:Photoset}</code></pre> -->(e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
+          <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div data-width=&quot;{PhotoWidth-HighRes}&quot; data-height=&quot;{PhotoHeight-HighRes}&quot; data-lowres=&quot;{PhotoURL-500}&quot; data-highres=&quot;{PhotoURL-HighRes}&quot; onclick=&quot;lightbox(this)&quot;&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
+          3. either before <pre class="inline-code"><code class="html">&lt;/head&gt;</code></pre> or right before <pre class="inline-code"><code class="html">&lt;/body&gt;</code></pre> (basically wherever you add your scripts) paste
+          <pre class="select"><code class="html">&lt;script&gt;
+function gatherData(images, arr) {
+  for (let i = 0; i &lt; images.length; i++) {
+    let currentData = {
+      &quot;width&quot;: images[i].getAttribute('data-width'),
+      &quot;height&quot;: images[i].getAttribute('data-height'),
+      &quot;low_res&quot;: images[i].getAttribute('data-lowres'),
+      &quot;high_res&quot;: images[i].getAttribute('data-highres')
+    };
+    arr.push(currentData);
+  }
+}
+function getIndex(elem) {
+  let i = 0;
+  while( (elem = elem.previousElementSibling) != null ) i++;
+  return i;
+}
+function lightbox(elem) {
+  let currentPhotoset = elem.parentNode;
+  let photosetPhotos = currentPhotoset.getElementsByTagName('div');
+  let data = [];
+  gatherData(photosetPhotos, data);
+  Tumblr.Lightbox.init(data, getIndex(elem) + 1);
+}
+&lt;/script&gt;</code></pre>
+          If you already have scripts in your code, you can simply add the functions in your existing <code>&lt;script&gt;...&lt;/script&gt;</code>. If you are using infinite scroll, there is no function that you need to add in your callback function.
+          <p>The CSS selectors and styling is the same as above. The photoset structure is the same.</p>
+        </div>
+        <div class="tags"><span>lightbox</span><span>instructions</span><span>install</span></div>
       </article>
       <article id="questions">
-
+        <div class="text">
+          <h3><b>Contact Us</b></h3>
+          <p>If you have any questions that aren't answered in this guide, spot any layouts that are missing, want to see something included that isn't, or simply have feedback, please let either one or both of us know! (<a href="https://annasthms.tumblr.com/faq">anna's askbox</a>, <a href="https://espoirthemes.tumblr.com/contact">bridgette's askbox</a>)</p>
+        </div>
+        <div class="tags"><span>questions</span><span>contact</span></div>
       </article>
     </section>
   </main>
+  <a href="#" id="scroll-up"><span class="th th-up-arrow"></span></a>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.1/SmoothScroll.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('a#scroll-up').click(function(){
+      $('html, body').animate({ scrollTop: 0 }, 1500);
+      $('a#scroll-down').fadeIn();
+      return false;
+    });
+  });
+  var sections = $('article')
+    , nav = $('aside');
+
+  var sectionTop = $('section#about').offset().top,
+      navStick = sectionTop - 48;
+
+  $(window).on('scroll', function () {
+    var cur_pos = $(this).scrollTop();
+
+    sections.each(function() {
+      var top = $(this).offset().top - 75,
+          bottom = top + $(this).outerHeight();
+
+      if (cur_pos >= top && cur_pos <= bottom) {
+        nav.find('a').removeClass('current');
+        sections.removeClass('current');
+
+        $(this).addClass('current');
+        nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('current');
+      }
+    });
+
+    if (cur_pos > navStick) {
+      nav.css({'position': 'fixed', 'top': '3em'});
+    } else {
+      nav.css({'position': '', 'top': ''});
+    }
+  });
+
+  nav.find('a').on('click', function () {
+    var $el = $(this)
+      , id = $el.attr('href');
+
+    sectionPosition = $(id).offset().top;
+    scrollTo = sectionPosition - 25 + 'px';
+    $('html, body').animate({scrollTop: scrollTo}, 1000);
+    return false;
+  });
+  </script>
 </body>
 </html>
