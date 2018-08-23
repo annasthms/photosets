@@ -1,181 +1,390 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
-<title>name | annasthms</title>
-<link rel="shortcut icon" href="https://78.media.tumblr.com/avatar_d7b66230491f_128.pnj">
-<link rel="alternate" type="application/rss+xml" href="https://annasthms.tumblr.com/rss">
-<meta name="description" content="anna, and her journey into theme-making" />
-<link rel="stylesheet" href="/photosets.css">
-<link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+  <meta charset="utf-8">
+  <title>photoset.css</title>
+  <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+  * {
+    position: relative;
+  }
+  body {
+    font-family: 'Anaheim', Garamond, serif;
+    /* font-family: Garamond, serif; */
+  }
+  a {
+    text-decoration: none;
+    color: #183135;
+  }
+  a:hover {
+    color: #000;
+  }
+  hr {
+    border: none;
+    width: 75%;
+    height: 1px;
+    background: #000;
+  }
+  blockquote {
+    border-left: 1px solid #000;
+    padding: 0 0 0 4%;
+    margin: 0;
+  }
+  p:first-child {
+    margin-top: 0;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
 
-<style>
-* {
-  position: relative;
-}
-body {
-  font-family: 'Anaheim', Garamond, serif;
-  /* font-family: Garamond, serif; */
-}
-a {
-  text-decoration: none;
-  color: #183135;
-}
-a:hover {
-  color: #000;
-}
-hr {
-  border: none;
-  width: 75%;
-  height: 1px;
-  background: #000;
-}
-blockquote {
-  border-left: 1px solid #000;
-  padding: 0 0 0 4%;
-  margin: 0;
-}
-p:first-child {
-  margin-top: 0;
-}
-p:last-child {
-  margin-bottom: 0;
-}
+  main {
+    width: 700px;
+    margin: 3em auto 5em;
+  }
 
-div#container {
-  max-width: 100%;
-  width: 700px;
-  margin: 3em auto 5em;
-}
+  header, section {
+    margin: 3em auto;
+  }
+  header {
+    /* padding-left: 10px; */
+    box-sizing: border-box;
+  }
+  div#blog-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1em;
+  }
+  div#espoirthemes {
+    text-align: right;
+  }
+  .blog img, .blog > div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .blog img {
+    height: 4em;
+    border: 1px solid #000;
+    border-radius: 100%;
+    box-sizing: border-box;
+  }
+  div#espoirthemes img {
+    border-color: #fdb443;
+  }
+  .blog > div {
+    margin: 0 1em;
+  }
+  .blog a.blog-link {
+    font-size: 1.25em;
+    margin-bottom: 0.3em;
+    display: inline-block;
+  }
+  .blog .blog-links {
+    /* margin-top: 1em; */
+  }
+  div#annasthms.blog .blog-links a {
+    margin-right: 0.35em;
+  }
+  div#espoirthemes.blog .blog-links a {
+    margin-left: 0.35em;
+  }
 
-header, section {
-  margin: 3em 2em;
-}
-header {
-  /* padding-left: 10px; */
-  box-sizing: border-box;
-}
-div#blog img, div#blog div {
-  display: inline-block;
-  vertical-align: middle;
-}
-div#blog img {
-  height: 4em;
-  border-radius: 100%;
-}
-div#blog div {
-  margin-left: 1em;
-}
-div#blog div a {
-  font-size: 1.25em;
-  margin-bottom: 0.3em;
-  display: inline-block;
-}
-div#blog-links {
-  margin-top: 1em;
-}
-div#blog-links a {
-  margin-right: 0.5em;
-}
+  section#big-title {
+    margin: 4em 0 5em;
+  }
+  div#intro-grid {
+    display: grid;
+    grid-template-columns: 11em 1fr;
+    grid-column-gap: 2em;
+    height: 2em;
+  }
+  div#intro-grid div {
+    line-height: 2em;
+  }
+  div#intro-grid b {
+    font-size: 2em;
+  }
+  div#intro-grid i {
+    margin-top: 0.1em;
+    display: block;
+    font-size: 1.15em;
+  }
 
-article {
-  margin: 2em auto;
-}
-article#about h2 {
-  margin-bottom: 0.25em;
-}
-article#about p {
-  margin: 0;
-}
+  aside {
+    width: 125px;
+    /* margin-top: 3em; */
+    position: absolute;
+  }
+  aside a {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  aside a.current {
+    font-weight: bold;
+    color: cornflowerblue;
+  }
+  aside small {
+    display: block;
+    margin-left: 0.75em;
+    color: #888;
+  }
+  aside small::before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 1px;
+    /* width: 0.75em; */
+    width: 0;
+    top: 0.65em;
+    left: -1em;
+    /* transform: translateY(-50%); */
+    background: #000;
+    transition: 0.2s width;
+  }
+  aside a.current small {
+    font-weight: normal;
+    font-style: italic;
+    /* margin-left: 1em; */
+  }
+  aside a.current small::before {
+    width: 0.75em;
+  }
 
-pre.inline-code {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 5px 0;
-  overflow: auto;
-  max-width: 100%;
-}
-pre.select {
-  user-select: all;
-}
-code::-webkit-scrollbar {
-  height: 3px;
-}
-code::-webkit-scrollbar-thumb {
-  background: #183135;
-}
-li pre.inline-code {
-  margin: 2px 0;
-}
-.hljs{display:block;overflow-x:auto;padding:0.5em;background:#f8f8f8;}
-.css.hljs,.css.hljs-subst{color: #666;}
-.html.hljs,.html.hljs-subst{color: #333;}
-.javascript.hljs,.javascript.hljs-subst{color: #555;}
-.hljs-name,.hljs-selector-tag{color: #444;font-weight: bold;}
-.hljs-selector-pseudo{color: #999;}
-.javascript .hljs-number{color: #38454d;}
-.hljs-keyword{font-weight: bold;}
-.hljs-comment{color: #9a9a9a;}
-.hljs {font-family: 'Roboto Mono', sans-serif;font-size: 0.7em;}
-.hljs-attr, .hljs-selector-id, .hljs-selector-class, .hljs-keyword {color: #183135}
-.hljs-string{color: #8ac1c9;}
-.hljs-attribute,.hljs-params{color: #306269;}
-</style>
+  section#about {
+    width: 550px;
+    margin-left: 150px;
+  }
+  article {
+    margin: 2em 0;
+  }
+
+  .style-grid {
+    display: grid;
+    grid-template-columns: 390px 150px;
+    grid-column-gap: 10px;
+  }
+  .style-grid:not(:last-of-type) {
+    margin-bottom: 20px;    
+  }
+  .style-grid pre {
+    margin: 0;
+  }
+  .photoset-grid {
+    width: 150;
+    grid-gap: 3px;
+  }
+  .photoset-grid div {
+    padding: 2px;
+  }
+  .photoset-grid img {
+    height: 69.5px !important;
+  }
+
+  [photoset-layout],[photoset-layout] div,[photoset-layout] img {-webkit-box-sizing:border-box;box-sizing:border-box;}
+  [photoset-layout] {display:grid;grid-template-columns:repeat(6, 1fr);}
+  [photoset-layout] img {display:block;height:100%;width:100%;-o-object-fit:cover;object-fit:cover;}
+  [photoset-layout="22"] div:nth-child(1),[photoset-layout="22"] div:nth-child(2){grid-column:span 3;} [photoset-layout="22"] div:nth-child(3),[photoset-layout="22"] div:nth-child(4){grid-column:span 3;}
+  </style>
+  <style>
+  pre.inline-code {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 0;
+    overflow: auto;
+    max-width: 100%;
+  }
+  pre.select {
+    user-select: all;
+  }
+  pre.nowrap {
+    white-space: pre-wrap;
+  }
+  code::-webkit-scrollbar {
+    height: 3px;
+  }
+  code::-webkit-scrollbar-thumb {
+    background: #183135;
+  }
+  li pre.inline-code {
+    margin: 2px 0;
+  }
+  .hljs{display:block;overflow-x:auto;padding:0.5em;background:#f8f8f8;}
+  .css.hljs,.css.hljs-subst{color: #666;}
+  .html.hljs,.html.hljs-subst{color: #333;}
+  .javascript.hljs,.javascript.hljs-subst{color: #555;}
+  .hljs-name,.hljs-selector-tag{color: #444;font-weight: bold;}
+  .hljs-selector-pseudo{color: #999;}
+  .javascript .hljs-number{color: #38454d;}
+  .hljs-keyword{font-weight: bold;}
+  .hljs-comment{color: #9a9a9a;}
+  .hljs {font-family: 'Roboto Mono', sans-serif;font-size: 0.7em;}
+  .hljs-attr, .hljs-selector-id, .hljs-selector-class, .hljs-keyword {color: #183135}
+  .hljs-string{color: #8ac1c9;}
+  .hljs-attribute,.hljs-params{color: #306269;}
+  </style>
 </head>
 <body>
-  <div id="container">
+  <main>
     <header>
-      <div id="blog">
-        <img src="http://i.imgur.com/Sp7iTzY.jpg" />
-        <div>
-          <a href="/">annasthms</a>
-          <br />
-          <span>anna, and her journey into theme-making</span>
+      <div id="blog-grid">
+        <div id="annasthms" class="blog">
+          <img src="https://api.tumblr.com/v2/blog/annasthms.tumblr.com/avatar/96" />
+          <div>
+            <a href="https://annasthms.tumblr.com/" class="blog-link">annasthms</a>
+            <div class="blog-links">
+              <a href="https://annasthms.tumblr.com/">blog</a>
+              <a href="https://annasthms.tumblr.com/faq">ask</a>
+              <a href="https://annasthms.tumblr.com/tou">themes</a>
+            </div>
+          </div>
+        </div>
+        <div id="espoirthemes" class="blog">
+          <div>
+            <a href="https://espoirthemes.tumblr.com/" class="blog-link">espoirthemes</a>
+            <div class="blog-links">
+              <a href="https://espoirthemes.tumblr.com/">blog</a>
+              <a href="https://espoirthemes.tumblr.com/contact">ask</a>
+              <a href="https://espoirthemes.tumblr.com/themes">themes</a>
+            </div>
+          </div>
+          <img src="https://api.tumblr.com/v2/blog/espoirthemes.tumblr.com/avatar/96" />
         </div>
       </div>
-      <div id="blog-links">
-        <a href="https://annasthms.tumblr.com/" target="_blank">annasthms</a>
-        <a href="https://espoirthemes.tumblr.com/" target="_blank">espoirthemes</a>
-        <!-- <a href="/">home</a>
-        <a href="/ask">ask</a>
-        <a href="/archive">archive</a>
-        <a href="/tou">themes</a> -->
-        <!-- <script language="JavaScript">var fhs = document.createElement('script');var fhs_id = "5519588";
-        var ref = (''+document.referrer+'');var pn =  window.location;var w_h = window.screen.width + " x " + window.screen.height;
-        fhs.src = "//freehostedscripts.net/ocounter.php?site="+fhs_id+"&e1=&e2=&r="+ref+"&wh="+w_h+"&a=1&pn="+pn+"";
-        document.head.appendChild(fhs);document.write("<span id='o_"+fhs_id+"'></span>");
-        </script>
-        <script language="JavaScript">var fhsh = document.createElement('script');var fhs_id_h = "3276592";
-        fhsh.src = "//freehostedscripts.net/ocount.php?site="+fhs_id_h+"&name=&a=1";
-        document.head.appendChild(fhsh);document.write("<span id='h_"+fhs_id_h+"'></span>");
-        </script> -->
-      </div>
     </header>
-    <section>
-      <article id="about">
-        <h2>photosets.css</h2>
-        <p><i>to everyone who balks at having to use javascript and pxu to style photosets, we see you</i></p>
-        <p><b>photosets.css</b> is a CSS stylesheet (compiled by JavaScript, ironically) that lays out all photoset layouts using solely CSS and a nifty photosets variable {PhotosetLayout}. The pictures are arranged using the CSS grid layout, though a fallback using inline blocks has been provided, in case anyone is using a browser that doesn’t support CSS grid.</p>
+    <section id="big-title">
+      <div id="intro-grid">
+        <div><b>photosets.css</b></div>
+        <!-- <div><i>a stylesheet that lays out all photosets using only CSS grid</i></div> -->
+        <div><i>css only custom photosets</i></div>
+      </div>
+    </section>
+    <aside>
+      <a href="#intro" class="current">introduction <small>general intro</small></a>
+      <a href="#info">information <small>build date, by, etc.</small></a>
+      <a href="#install">installation <small>how to use</small></a>
+      <a href="#custom">customization <small>how to customize</small></a>
+      <a href="#demo">demos <small>see it in action</small></a>
+      <a href="#lightbox">lightboxes <small>this needs javascript</small></a>
+      <a href="#questions">questions? <small>send us feedback or inquiries!</small></a>
+    </aside>
+    <section id="about">
+      <article id="intro">
+        <div class="text">
+          <h2>photosets.css</h2>
+          <p><i>to everyone who balks at having to use javascript and pxu to style photosets, we see you</i></p>
+          <p><b>photosets.css</b> is a CSS stylesheet (compiled by JavaScript, ironically) that lays out all photoset layouts using solely CSS and a nifty photosets variable <code>{PhotosetLayout}</code>. The pictures are arranged using the CSS grid layout, though a fallback using inline blocks has been provided, in case anyone is using a browser that doesn’t support CSS grid.</p>
+        </div>
+        <div class="tags">
+          <span>introduction</span>
+          <span>information</span>
+        </div>
       </article>
       <article id="info">
-        <b>built:</b> august 19, 2018 <br />
-        <b>by:</b> annasthms, espoirthemes <br />
-        <!-- <b>requirements:</b> <br /> -->
-        <!-- <b>warning:</b> </b> -->
+        <div class="text">
+          <b>built:</b> august 19, 2018 <br />
+          <b>by:</b> annasthms, espoirthemes <br />
+          <!-- <b>requirements:</b> <br /> -->
+          <!-- <b>warning:</b> </b> -->
+        </div>
+        <div class="tags">
+          <span>introduction</span>
+          <span>information</span>
+        </div>
       </article>
       <article id="install">
-        1. under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre> paste
-        <pre><code class="html">&lt;link href=&quot;https://dl.dropbox.com/s/h0msugnmn4ggbcq/cssOnlyPhotosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
-        2. replace <pre class="inline-code"><code class="html">{block:Photoset}...{/block:Photoset}</code></pre> with
-        <pre><code class="html">{block:Photoset}&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;{/block:Photoset}</code></pre>
+        <div class="text">
+          <h3><b>How to Install</b></h3>
+          1. under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre> paste
+          <pre class="select"><code class="html">&lt;link href=&quot;https://dl.dropbox.com/s/h0msugnmn4ggbcq/cssOnlyPhotosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
+          2. replace the photoset you would've had <!--between <pre class="inline-code"><code class="html">{block:Photoset}...{/block:Photoset}</code></pre> -->(e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
+          <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
+        </div>
+        <div class="tags">
+          <span>instructions</span>
+          <span>install</span>
+        </div>
       </article>
-      <article id="help">
-        if you run into any problems or need help, feel free to drop <a href="https://annasthms.tumblr.com/faq" target="_blank"><b>me</b> or <a href="https://eggdesigns.co/contact" target="_blank"><b>bridgette</b></a> an <b>ask</b>!</a>
+      <article id="custom">
+        <div class="text">
+          <h3><b>How to Customize</b></h3>
+          <p>The photosets have three "layers":</p>
+          <ol>
+            <li>the photoset container</li>
+            <li>the image container</li>
+            <li>the image</li>
+          </ol>
+          <p>In summary: each image is wrapped in their own <code class="html">&lt;div&gt;</code>, which then are wrapped in a container.</p>
+          <p>Having the pictures wrapped in more than one container allows for a great amount of customization. For example, there can be padding between the picture and the border, or there can be a hover animation that allows for the image to grow without interfering with the other images.</p>
+          <p>Here is a rundown of the different CSS selectors for each layer and some basic styling options:</p>
+          <div class="style-grid">
+            <div class="css-code">
+              <pre><code class="css">/***** the entire photoset/photoset container *****/
+[photoset-layout] {
+  grid-column-gap: ##; /* this is the gap between the columns */
+  grid-row-gap: ##; /* this is the gap between the rows */
+  grid-gap: ##; /* this is the gap between both the rows and the columns; you should probably use this if they are the same value */
+}</code></pre>
+            </div>
+            <div class="css-output">
+              <div class="photoset-grid" photoset-layout="22" style="border:1px solid red">
+                <div><a href="https://unsplash.com/photos/fsdWYNTymjI" target="_blank"><img src="https://images.unsplash.com/photo-1502809737437-1d85c70dd2ca?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=998bccff06362226c18586b810543a9b&auto=format&fit=crop&w=800&q=60" /></a></div>
+                <div><a href="https://unsplash.com/photos/kkJuQhp9Kw0" target="_blank"><img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b139dbf7082fd5fa4cb3b1187d1cf221&auto=format&fit=crop&w=800&q=60" /></a></div>
+                <div><a href="https://unsplash.com/photos/Shyas7nV60Y" target="_blank"><img src="https://images.unsplash.com/photo-1502807714457-47509524ee9e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=15c8b61c5ea090fa4543eaa72390535b&auto=format&fit=crop&w=800&q=60" /></a></div>
+                <div><a href="https://unsplash.com/photos/BEwxLSN_bKU" target="_blank"><img src="https://images.unsplash.com/photo-1508007226633-b7de6a10cb16?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d9c5a60e51e9f67103a95c693ba6e248&auto=format&fit=crop&w=800&q=60" /></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="style-grid">
+            <div class="css-code">
+              <pre><code class="css">/***** the image container *****/
+[photoset-layout] div {
+  padding: ##; /* padding in the each image's container */
+  border: _____; /* border around each image's container */
+}</code></pre>
+            </div>
+            <div class="css-output">
+              <div class="photoset-grid" photoset-layout="22">
+                <div style="border:1px solid red"><a href="https://unsplash.com/photos/fsdWYNTymjI" target="_blank"><img src="https://images.unsplash.com/photo-1502809737437-1d85c70dd2ca?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=998bccff06362226c18586b810543a9b&auto=format&fit=crop&w=800&q=60" /></a></div>
+                <div style="border:1px solid red"><a href="https://unsplash.com/photos/kkJuQhp9Kw0" target="_blank"><img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b139dbf7082fd5fa4cb3b1187d1cf221&auto=format&fit=crop&w=800&q=60" /></a></div>
+                <div style="border:1px solid red"><a href="https://unsplash.com/photos/Shyas7nV60Y" target="_blank"><img src="https://images.unsplash.com/photo-1502807714457-47509524ee9e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=15c8b61c5ea090fa4543eaa72390535b&auto=format&fit=crop&w=800&q=60" /></a></div>
+                <div style="border:1px solid red"><a href="https://unsplash.com/photos/BEwxLSN_bKU" target="_blank"><img src="https://images.unsplash.com/photo-1508007226633-b7de6a10cb16?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d9c5a60e51e9f67103a95c693ba6e248&auto=format&fit=crop&w=800&q=60" /></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="style-grid">
+            <div class="css-code">
+              <pre><code class="css">/***** the image *****/
+[photoset-layout] img {
+  border: _____; /* border around each image */
+  border-radius: ##; /* each image's border radius */
+}</code></pre>
+            </div>
+            <div class="css-output">
+              <div class="photoset-grid" photoset-layout="22">
+                <div><a href="https://unsplash.com/photos/fsdWYNTymjI" target="_blank"><img src="https://images.unsplash.com/photo-1502809737437-1d85c70dd2ca?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=998bccff06362226c18586b810543a9b&auto=format&fit=crop&w=800&q=60" style="border:1px solid red" /></a></div>
+                <div><a href="https://unsplash.com/photos/kkJuQhp9Kw0" target="_blank"><img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b139dbf7082fd5fa4cb3b1187d1cf221&auto=format&fit=crop&w=800&q=60" style="border:1px solid red" /></a></div>
+                <div><a href="https://unsplash.com/photos/Shyas7nV60Y" target="_blank"><img src="https://images.unsplash.com/photo-1502807714457-47509524ee9e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=15c8b61c5ea090fa4543eaa72390535b&auto=format&fit=crop&w=800&q=60" style="border:1px solid red" /></a></div>
+                <div><a href="https://unsplash.com/photos/BEwxLSN_bKU" target="_blank"><img src="https://images.unsplash.com/photo-1508007226633-b7de6a10cb16?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d9c5a60e51e9f67103a95c693ba6e248&auto=format&fit=crop&w=800&q=60" style="border:1px solid red" /></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tags">
+
+        </div>
+      </article>
+      <article id="demo">
+
+      </article>
+      <article id="lightbox">
+
+      </article>
+      <article id="questions">
+
       </article>
     </section>
-  </div>
-
+  </main>
 </body>
 </html>
