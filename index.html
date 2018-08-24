@@ -121,7 +121,7 @@
     font-size: 1.5em;
   }
   header::after {
-    content: 'brings you';
+    content: 'bring you';
     position: absolute;
     top: calc(50% + 1em);
     left: 50%;
@@ -294,16 +294,6 @@
     height: 69.5px !important;
   }
 
-  div#fhs {
-    position: fixed;
-    bottom: 2.5em;
-    right: 1em;
-    text-align: right;
-  }
-  div#fhs a {
-    display: block;
-  }
-
   a#scroll-up {
     position: fixed;
     font-size: 0.8em;
@@ -391,7 +381,7 @@
       </div>
     </header>
     <section id="big-title">
-      <a href="https://espoirthemes.tumblr.com/" title="banner by bridgette" target="_blank"><img src="https://cdn.discordapp.com/attachments/431945667678568458/481974953059811328/nojs-01.png" alt="css-only photosets banner"></a>
+      <a href="https://espoirthemes.tumblr.com/" title="banner by bridgette" target="_blank"><img src="https://78.media.tumblr.com/e5780d1c255be23654adf7ae549f2975/tumblr_pdya4lDwgq1wc12jxo1_1280.png" alt="css-only photosets banner"></a>
     </section>
     <aside>
       <a href="#intro" class="current">introduction <small>general intro</small></a>
@@ -595,17 +585,24 @@ function lightbox(elem) {
 
     $(window).on('scroll', function () {
       var cur_pos = $(this).scrollTop();
+      var screenHeight = $(this).outerHeight();
+
+      nav.find('a').removeClass('current');
+      sections.removeClass('current');
 
       sections.each(function() {
-        var top = $(this).offset().top - 75,
+        var top = $(this).offset().top + 50,
             bottom = top + $(this).outerHeight();
 
-        if (cur_pos >= top && cur_pos <= bottom) {
-          nav.find('a').removeClass('current');
-          sections.removeClass('current');
-
+        if (((top < cur_pos + screenHeight) && (top - cur_pos <= (screenHeight))) && (top - cur_pos > 0) || (bottom - cur_pos < screenHeight) && (bottom - cur_pos > 0)) {
           $(this).addClass('current');
           nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('current');
+        } else if ((cur_pos - top > 0) && (bottom - cur_pos > screenHeight)) {
+          $(this).addClass('current');
+          nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('current');
+        } else {
+          $(this).removeClass('current');
+          nav.find('a[href="#'+$(this).attr('id')+'"]').removeClass('current');
         }
       });
 
@@ -621,7 +618,7 @@ function lightbox(elem) {
         , id = $el.attr('href');
 
       sectionPosition = $(id).offset().top;
-      scrollTo = sectionPosition - 25 + 'px';
+      scrollTo = sectionPosition - 30 + 'px';
       $('html, body').animate({scrollTop: scrollTo}, 1000);
       return false;
     });
