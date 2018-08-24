@@ -76,10 +76,10 @@
     margin-bottom: 0;
   }
 
-  ::-webkit-scrollbar {
+  body::-webkit-scrollbar {
     width: 18px;
   }
-  ::-webkit-scrollbar-thumb {
+  body::-webkit-scrollbar-thumb {
     background: cornflowerblue;
     border-width: 4px 6px;
     border-style: solid;
@@ -87,7 +87,7 @@
     border-radius: 8px;
     cursor: pointer;
   }
-  ::-webkit-scrollbar-track {
+  body::-webkit-scrollbar-track {
     background: #dfdfdf;
     border-width: 12px 8px;
     border-style: solid;
@@ -359,7 +359,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-124566638-1');
   </script>
 </head>
@@ -426,7 +425,7 @@
         <div class="text">
           <h3><b>How to Install</b></h3>
           1. under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre>, paste
-          <pre class="select"><code class="html">&lt;link href=&quot;https://dl.dropbox.com/s/h0msugnmn4ggbcq/cssOnlyPhotosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
+          <pre class="select"><code class="html">&lt;link href=&quot;https://static.tumblr.com/0podkko/bwepdyarh/photosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
           2. replace your photosets block (e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
           <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
         </div>
@@ -514,7 +513,7 @@
           <h3><b>Tumblr Lightboxes</b></h3>
           <p>There is a way to enable native Tumblr lightboxes for the photosets, but be aware that this will require JavaScript. The setup is also a little bit different.</p>
           1. (this step isn't different from before) under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre>, paste
-          <pre class="select"><code class="html">&lt;link href=&quot;https://dl.dropbox.com/s/h0msugnmn4ggbcq/cssOnlyPhotosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
+          <pre class="select"><code class="html">&lt;link href=&quot;https://static.tumblr.com/0podkko/bwepdyarh/photosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
           2. replace your photosets block (e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
           <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div data-width=&quot;{PhotoWidth-HighRes}&quot; data-height=&quot;{PhotoHeight-HighRes}&quot; data-lowres=&quot;{PhotoURL-500}&quot; data-highres=&quot;{PhotoURL-HighRes}&quot; onclick=&quot;lightbox(this)&quot;&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
           3. either before <pre class="inline-code"><code class="html">&lt;/head&gt;</code></pre> or right before <pre class="inline-code"><code class="html">&lt;/body&gt;</code></pre> (basically wherever you add your scripts), paste
