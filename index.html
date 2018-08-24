@@ -76,6 +76,28 @@
     margin-bottom: 0;
   }
 
+  ::-webkit-scrollbar {
+    width: 18px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: cornflowerblue;
+    border-width: 4px 6px;
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  ::-webkit-scrollbar-track {
+    background: #dfdfdf;
+    border-width: 12px 8px;
+    border-style: solid;
+    border-color: #fff;
+  }
+  ::selection {
+    background: #222;
+    color: #fff;
+  }
+
   main {
     width: 725px;
     margin: 3em auto 5em;
@@ -163,6 +185,12 @@
     display: block;
     font-size: 1.15em;
   }
+  section#big-title img {
+    width: 100%;
+    height: auto;
+    margin-top: -1em;
+    display: block;
+  }
 
   aside {
     width: 125px;
@@ -226,16 +254,9 @@
     display: inline-block;
     margin-right: 0.5em;
     padding: 0.25em 0.45em;
-    background: #beefed;
     font-size: 0.9em;
     border-radius: 5px;
     cursor: help;
-  }
-  .tags span:nth-child(2n) {
-    background: #facade;
-  }
-  .tags span:nth-child(3n) {
-    background: skyblue;
   }
 
   p#change-log {
@@ -271,6 +292,16 @@
   }
   .photoset-grid img {
     height: 69.5px !important;
+  }
+
+  div#fhs {
+    position: fixed;
+    bottom: 2.5em;
+    right: 1em;
+    text-align: right;
+  }
+  div#fhs a {
+    display: block;
   }
 
   a#scroll-up {
@@ -352,10 +383,7 @@
       </div>
     </header>
     <section id="big-title">
-      <div id="intro-grid">
-        <div><b>photosets.css</b></div>
-        <div><i>css only custom photosets</i></div>
-      </div>
+      <a href="https://espoirthemes.tumblr.com/" title="banner by bridgette" target="_blank"><img src="https://cdn.discordapp.com/attachments/431945667678568458/481974953059811328/nojs-01.png" alt="css-only photosets banner"></a>
     </section>
     <aside>
       <a href="#intro" class="current">introduction <small>general intro</small></a>
@@ -380,8 +408,6 @@
         <div class="text">
           <b>built:</b> july 30, 2018 <br />
           <b>by:</b> annasthms, espoirthemes <br />
-          <!-- <b>requirements:</b> <br /> -->
-          <!-- <b>warning:</b> </b> -->
           <p id="change-log"><u>change log</u></p>
           <p>- august 17, 2018: added <code>display:inline-block;</code> fallback for those who don't use browsers that support CSS grid</p>
         </div>
@@ -390,9 +416,9 @@
       <article id="install">
         <div class="text">
           <h3><b>How to Install</b></h3>
-          1. under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre> paste
+          1. under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre>, paste
           <pre class="select"><code class="html">&lt;link href=&quot;https://dl.dropbox.com/s/h0msugnmn4ggbcq/cssOnlyPhotosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
-          2. replace the photoset you would've had <!--between <pre class="inline-code"><code class="html">{block:Photoset}...{/block:Photoset}</code></pre> -->(e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
+          2. replace your photosets block (e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
           <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
         </div>
         <div class="tags"><span>instructions</span><span>install</span></div>
@@ -406,7 +432,7 @@
             <li>the image container</li>
             <li>the image</li>
           </ol>
-          <p>In summary: each image is wrapped in their own <code class="html">&lt;div&gt;</code>, which then are wrapped in a container.</p>
+          <p>In summary: each image is wrapped in their own <code class="html">&lt;div&gt;</code>, which in turn are wrapped in a container.</p>
           <p>Having the pictures wrapped in more than one container allows for a great amount of customization. For example, there can be padding between the picture and the border, or there can be a hover animation that allows for the image to grow without interfering with the other images.</p>
           <p>Here is a rundown of the different CSS selectors for each layer and some basic styling options:</p>
           <div class="style-grid">
@@ -462,12 +488,12 @@
             </div>
           </div>
         </div>
-        <div class="tags"><span>instructions</span><span>customize</span></div>
+        <div class="tags"><span>instructions</span><span>customize</span><span>all "photoset" pictures from unsplash</span></div>
       </article>
       <article id="demo">
         <div class="text">
           <h3><b>Demo</b></h3>
-          <p>Some example photoset stylings:</p>
+          <p>Some examples of possible photoset styling:</p>
           <p data-height="400" data-theme-id="dark" data-slug-hash="RYwVXa" data-default-tab="result" data-user="annasthms" data-pen-title="photosets.css demo" class="codepen">See the Pen <a href="https://codepen.io/annasthms/pen/RYwVXa/">photosets.css demo</a> by anna (<a href="https://codepen.io/annasthms">@annasthms</a>) on <a href="https://codepen.io">CodePen</a>.</p>
           <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
           <p>You can play around with the pen <a href="https://codepen.io/annasthms/pen/RYwVXa" target="_blank">here</a>.</p>
@@ -477,12 +503,12 @@
       <article id="lightbox">
         <div class="text">
           <h3><b>Tumblr Lightboxes</b></h3>
-          <p>There is a way to enable native Tumblr lightboxes for the photosets, but be wary that this will necessitate JavaScript. The setup is also a little bit different.</p>
-          1. (this step isn't different from before) under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre> paste
+          <p>There is a way to enable native Tumblr lightboxes for the photosets, but be aware that this will require JavaScript. The setup is also a little bit different.</p>
+          1. (this step isn't different from before) under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre>, paste
           <pre class="select"><code class="html">&lt;link href=&quot;https://dl.dropbox.com/s/h0msugnmn4ggbcq/cssOnlyPhotosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
-          2. replace the photoset you would've had <!--between <pre class="inline-code"><code class="html">{block:Photoset}...{/block:Photoset}</code></pre> -->(e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
+          2. replace your photosets block (e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
           <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div data-width=&quot;{PhotoWidth-HighRes}&quot; data-height=&quot;{PhotoHeight-HighRes}&quot; data-lowres=&quot;{PhotoURL-500}&quot; data-highres=&quot;{PhotoURL-HighRes}&quot; onclick=&quot;lightbox(this)&quot;&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
-          3. either before <pre class="inline-code"><code class="html">&lt;/head&gt;</code></pre> or right before <pre class="inline-code"><code class="html">&lt;/body&gt;</code></pre> (basically wherever you add your scripts) paste
+          3. either before <pre class="inline-code"><code class="html">&lt;/head&gt;</code></pre> or right before <pre class="inline-code"><code class="html">&lt;/body&gt;</code></pre> (basically wherever you add your scripts), paste
           <pre class="select"><code class="html">&lt;script&gt;
 function gatherData(images, arr) {
   for (let i = 0; i &lt; images.length; i++) {
@@ -509,14 +535,18 @@ function lightbox(elem) {
 }
 &lt;/script&gt;</code></pre>
           If you already have scripts in your code, you can simply add the functions in your existing <code>&lt;script&gt;...&lt;/script&gt;</code>. If you are using infinite scroll, there is no function that you need to add in your callback function.
-          <p>The CSS selectors and styling is the same as above. The photoset structure is the same.</p>
+          <p>The CSS selectors and styling are the same as above. The photoset structure is also the same.</p>
+          <p>I would reccomend adding this style, to ensure that users know that the photoset has a clickable lightbox:</p>
+          <pre class="select"><code class="css">[photoset-layout] div {
+  cursor: pointer;
+}</code></pre>
         </div>
         <div class="tags"><span>lightbox</span><span>instructions</span><span>install</span></div>
       </article>
       <article id="questions">
         <div class="text">
           <h3><b>Contact Us</b></h3>
-          <p>If you have any questions that aren't answered in this guide, spot any layouts that are missing, want to see something included that isn't, or simply have feedback, please let either one or both of us know! (<a href="https://annasthms.tumblr.com/faq">anna's askbox</a>, <a href="https://espoirthemes.tumblr.com/contact">bridgette's askbox</a>)</p>
+          <p>If you have any questions that haven’t been answered, spot any layouts that are missing, want to suggest a new feature, or simply would like to leave your feedback, please let either one or both of us know! (<a href="https://annasthms.tumblr.com/faq">anna's askbox</a>, <a href="https://espoirthemes.tumblr.com/contact">bridgette's askbox</a>)</p>
         </div>
         <div class="tags"><span>questions</span><span>contact</span></div>
       </article>
@@ -532,44 +562,60 @@ function lightbox(elem) {
       $('a#scroll-down').fadeIn();
       return false;
     });
-  });
-  var sections = $('article')
-    , nav = $('aside');
 
-  var sectionTop = $('section#about').offset().top,
-      navStick = sectionTop - 48;
+    let tagColors = ['#beefed', '#facade', '#87ceeb'];
+    function randomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+    $('.tags').each(function(){
+      let currentColors = tagColors.slice();
+      $(this).find('span').each(function(){
+        let randomIndex = randomInt(0,currentColors.length);
+        $(this).css('background', currentColors[randomIndex]);
+        currentColors.splice(randomIndex,1);
+      });
+    });
 
-  $(window).on('scroll', function () {
-    var cur_pos = $(this).scrollTop();
+    var sections = $('article')
+      , nav = $('aside');
 
-    sections.each(function() {
-      var top = $(this).offset().top - 75,
-          bottom = top + $(this).outerHeight();
+    var sectionTop = $('section#about').offset().top,
+        navStick = sectionTop - 48;
 
-      if (cur_pos >= top && cur_pos <= bottom) {
-        nav.find('a').removeClass('current');
-        sections.removeClass('current');
+    $(window).on('scroll', function () {
+      var cur_pos = $(this).scrollTop();
 
-        $(this).addClass('current');
-        nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('current');
+      sections.each(function() {
+        var top = $(this).offset().top - 75,
+            bottom = top + $(this).outerHeight();
+
+        if (cur_pos >= top && cur_pos <= bottom) {
+          nav.find('a').removeClass('current');
+          sections.removeClass('current');
+
+          $(this).addClass('current');
+          nav.find('a[href="#'+$(this).attr('id')+'"]').addClass('current');
+        }
+      });
+
+      if (cur_pos > navStick) {
+        nav.css({'position': 'fixed', 'top': '3em'});
+      } else {
+        nav.css({'position': '', 'top': ''});
       }
     });
 
-    if (cur_pos > navStick) {
-      nav.css({'position': 'fixed', 'top': '3em'});
-    } else {
-      nav.css({'position': '', 'top': ''});
-    }
-  });
+    nav.find('a').on('click', function () {
+      var $el = $(this)
+        , id = $el.attr('href');
 
-  nav.find('a').on('click', function () {
-    var $el = $(this)
-      , id = $el.attr('href');
-
-    sectionPosition = $(id).offset().top;
-    scrollTo = sectionPosition - 25 + 'px';
-    $('html, body').animate({scrollTop: scrollTo}, 1000);
-    return false;
+      sectionPosition = $(id).offset().top;
+      scrollTo = sectionPosition - 25 + 'px';
+      $('html, body').animate({scrollTop: scrollTo}, 1000);
+      return false;
+    });
   });
   </script>
 </body>
