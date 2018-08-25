@@ -592,7 +592,7 @@ function lightbox(elem) {
 
       sections.each(function() {
         var top = $(this).offset().top + 50,
-            bottom = top + $(this).outerHeight();
+            bottom = top + $(this).outerHeight() - 50;
 
         if (((top < cur_pos + screenHeight) && (top - cur_pos <= (screenHeight))) && (top - cur_pos > 0) || (bottom - cur_pos < screenHeight) && (bottom - cur_pos > 0)) {
           $(this).addClass('current');
