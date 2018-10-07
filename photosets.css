@@ -1,3 +1,15 @@
+/**********************************************************
+
+  PHOTOSETS.CSS by annasthms and espoirthemes
+
+  compiled July 30, 2018
+  find out more at https://annasthms.github.io/photosets
+
+  change log:
+  - August 17, 2018: added display:inline-block; fallback
+
+**********************************************************/
+
 [photoset-layout],[photoset-layout] div,[photoset-layout] img {-webkit-box-sizing:border-box;box-sizing:border-box;}
 @supports (display:grid) {
   [photoset-layout] {display:grid;grid-template-columns:repeat(6, 1fr);}
