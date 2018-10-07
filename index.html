@@ -408,6 +408,7 @@
           <b>by:</b> annasthms, espoirthemes <br />
           <p id="change-log"><u>change log</u></p>
           <p>- august 17, 2018: added <code>display:inline-block;</code> fallback for those who don't use browsers that support CSS grid</p>
+          <p>- added "find out more" link to credits comment</p>
         </div>
         <div class="tags"><span>introduction</span><span>information</span></div>
       </article>
@@ -415,7 +416,7 @@
         <div class="text">
           <h3><b>How to Install</b></h3>
           1. under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre>, paste
-          <pre class="select"><code class="html">&lt;link href=&quot;https://static.tumblr.com/0podkko/bwepdyarh/photosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
+          <pre class="select"><code class="html">&lt;link href=&quot;https://static.tumblr.com/0podkko/oDSpg7y88/photosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
           2. replace your photosets block (e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
           <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
         </div>
@@ -503,7 +504,7 @@
           <h3><b>Tumblr Lightboxes</b></h3>
           <p>There is a way to enable native Tumblr lightboxes for the photosets, but be aware that this will require JavaScript. The setup is also a little bit different.</p>
           1. (this step isn't different from before) under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre>, paste
-          <pre class="select"><code class="html">&lt;link href=&quot;https://static.tumblr.com/0podkko/bwepdyarh/photosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
+          <pre class="select"><code class="html">&lt;link href=&quot;https://static.tumblr.com/0podkko/oDSpg7y88/photosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
           2. replace your photosets block (e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with
           <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div data-width=&quot;{PhotoWidth-HighRes}&quot; data-height=&quot;{PhotoHeight-HighRes}&quot; data-lowres=&quot;{PhotoURL-500}&quot; data-highres=&quot;{PhotoURL-HighRes}&quot; onclick=&quot;lightbox(this)&quot;&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
           3. either before <pre class="inline-code"><code class="html">&lt;/head&gt;</code></pre> or right before <pre class="inline-code"><code class="html">&lt;/body&gt;</code></pre> (basically wherever you add your scripts), paste
