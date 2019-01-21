@@ -1,0 +1,31 @@
+/**********************************************************
+
+  modified PHOTOSETS.CSS/.JS by annasthms
+  original PHOTOSETS.CSS by annasthms and espoirthemes
+
+  compiled July 30, 2018
+  modified January 13, 2019
+  find out more at https://annasthms.github.io/photosets
+
+  change log:
+  - August 17, 2018: added display:inline-block; fallback
+
+**********************************************************/
+
+[photoset-layout],[photoset-layout] div,[photoset-layout] img {-webkit-box-sizing:border-box;box-sizing:border-box;}
+[photoset-layout] img {display:block;height:100%;width:100%;-o-object-fit:cover;object-fit:cover;}
+@supports (display:grid) {
+  [photoset-layout] {display:grid;grid-template-columns:repeat(6, 1fr);}
+  [photoset-layout] .span-1 {grid-column:span 1;}
+  [photoset-layout] .span-2 {grid-column:span 2;}
+  [photoset-layout] .span-3 {grid-column:span 3;}
+  [photoset-layout] .span-4 {grid-column:span 4;}
+  [photoset-layout] .span-5 {grid-column:span 5;}
+  [photoset-layout] .span-6 {grid-column:span 6;}
+}
+@supports not (display:grid) {
+  [photoset-layout] div {display:inline-block;vertical-align:middle;}
+  [photoset-layout] .span-2 {width:33.33333333333333%;}
+  [photoset-layout] .span-3 {width:50%;}
+  [photoset-layout] .span-6 {width:100%;}
+}
