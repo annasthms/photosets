@@ -111,7 +111,7 @@
     box-sizing: border-box;
   }
   header::before {
-    content: '\e154';
+    content: '\ea54';
     font-family: 'honeybee';
     position: absolute;
     top: calc(50% - 0.5em);
@@ -227,6 +227,20 @@
   aside a.current small::before {
     width: 0.75em;
   }
+  span#new {
+    top: -0.1em;
+    color: #fff;
+    background: #809bbd;
+    padding: 0.15em 0.35em;
+    font-size: 0.7em;
+    opacity: 0.5;
+    transition-duration: 0.25s;
+    transition-property: opacity;
+    text-transform: uppercase;
+  }
+  .current span#new {
+    opacity: 0.85;
+  }
 
   section#about {
     width: 550px;
@@ -321,7 +335,7 @@
     white-space: pre-wrap;
   }
   code::-webkit-scrollbar {
-    height: 3px;
+    height: 3.5px;
   }
   code::-webkit-scrollbar-thumb {
     background: #183135;
@@ -390,6 +404,7 @@
       <a href="#custom">customization <small>how to customize</small></a>
       <a href="#demo">demo <small>see it in action</small></a>
       <a href="#lightbox">lightboxes <small>this needs javascript</small></a>
+      <a href="#js">JS Version <span id="new">new!</span> <small>the lightweight version using JS</small></a>
       <a href="#questions">questions? <small>send us feedback or inquiries!</small></a>
     </aside>
     <section id="about">
@@ -398,7 +413,7 @@
           <h2>photosets.css</h2>
           <p><i>to everyone who balks at having to use javascript and pxu to style photosets, we see you</i></p>
           <p><b>photosets.css</b> is a CSS stylesheet (compiled by JavaScript, ironically) that lays out all photoset layouts using solely CSS and a nifty photosets variable <code>{PhotosetLayout}</code>. The pictures are arranged using the CSS grid layout, though a fallback using inline blocks has been provided, in case anyone is using a browser that doesn’t support CSS grid.</p>
-          <p><a href="#">go to post</a></p>
+          <p><a href="https://annasthms.tumblr.com/post/177359244495/photosetscss-by-annasthms-and-espoirthemes-to" target="_blank">go to post</a></p>
         </div>
         <div class="tags"><span>introduction</span><span>information</span></div>
       </article>
@@ -409,6 +424,7 @@
           <p id="change-log"><u>change log</u></p>
           <p>- august 17, 2018: added <code>display:inline-block;</code> fallback for those who don't use browsers that support CSS grid</p>
           <p>- october 7, 2018: added "find out more" link to credits comment</p>
+          <p>- january 13, 2019: added a js-modified version to reduce file size and load times</p>
         </div>
         <div class="tags"><span>introduction</span><span>information</span></div>
       </article>
@@ -542,6 +558,52 @@ function lightbox(elem) {
         </div>
         <div class="tags"><span>lightbox</span><span>instructions</span><span>install</span></div>
       </article>
+      <article id="js">
+        <h3><b>The JavaScript-Modified Version</b></h3>
+        <p>A modified version of photosets.css using JavaScript has been created to reduce the file size and quicken load times. The photosets are still styled entirely with CSS, but the file size of the CSS (and JavaScript) files are much smaller. Some JavaScript knowledge is reccomended, especially if you're interested in using it past it basic capabilities.</p>
+        <!-- insert installation instructions -->
+        <h4 style="margin-bottom:0.5em"><b>How to Install</b></h4>
+        1. under <pre class="inline-code"><code class="html">&lt;head&gt;</code></pre>, paste
+        <pre class="select"><code class="html">&lt;link href=&quot;https://static.tumblr.com/0podkko/xIbplezmo/modified_photosets.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>
+        2. replace your photosets block (e.g. <pre class="inline-code"><code class="html">{Photoset}</code></pre> or pxu's photoset) with...<br />
+        &nbsp;&nbsp;&nbsp;for just the photosets: <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
+        &nbsp;&nbsp;&nbsp;for photosets with lightboxes: <pre class="select nowrap"><code class="html">&lt;div class=&quot;photoset-grid&quot; photoset-layout=&quot;{PhotosetLayout}&quot;&gt;{block:Photos}&lt;div data-width=&quot;{PhotoWidth-HighRes}&quot; data-height=&quot;{PhotoHeight-HighRes}&quot; data-lowres=&quot;{PhotoURL-500}&quot; data-highres=&quot;{PhotoURL-HighRes}&quot; onclick=&quot;lightbox(this)&quot;&gt;&lt;img src=&quot;{PhotoURL-HighRes}&quot; /&gt;&lt;/div&gt;{/block:Photos}&lt;/div&gt;</code></pre>
+        3. either before <pre class="inline-code"><code class="html">&lt;/head&gt;</code></pre> or right before <pre class="inline-code"><code class="html">&lt;/body&gt;</code></pre> (basically wherever you add your scripts), paste <pre class="select"><code class="html">&lt;script src=&quot;https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js&quot;&gt;&lt;/script&gt;</code></pre>
+        4. right after the pasted <pre class="inline-code"><code class="html">&lt;script&gt;</code></pre> link, paste <pre class="select nowrap"><code class="html">&lt;script&gt;initPhotosets();&lt;/script&gt;</code></pre>
+        JQuery is not needed for the script to run properly. If you already have a <pre class="inline-code"><code class="html">&lt;script&gt;</code></pre> with JavaScript, you can simply call <pre class="select inline-code"><code class="javascript">initPhotosets();</code></pre> within it.
+        <p>You do not need to add any additional JavaScript for native Tumblr lightboxes; the code is included with the Javascript file.</p>
+        <p>If you are using PXU (or other JavaScript-based) photosets, please remember to remove any code and scripts relating to them when installing these photosets!</p>
+        <h4 style="margin-bottom:0.5em"><b>Additional Functionality and Notes</b></h4>
+        <p><u>Structure</u></p>
+        After <pre class="inline-code"><code class="javascript">initPhotosets();</code></pre> runs, the photosets will have a structure like the CSS-only photosets. The only difference is that the photo containers will have an additional attribute of <pre class="inline-code"><code class="html">index="#"</code></pre>. The index attribute represents what number photo each photo is. (This attribute may be helpful to those who would like to use custom photoset lightbox code.)
+        <p><u>Callback Functionality</u></p>
+        <p>The initPhotosets() function has the ability to execute a <a href="https://stackoverflow.com/a/7549753" target="_blank">callback function</a>. A callback function in this case is a function that runs after all the photosets on the page have been initialized/styled. This is useful to those who have code that needs to run after all the photosets are ready.</p>
+        <p>To use this functionality, simply place the function between the parentheses. (For those who are familiar with JavaScript, you are passing the function as an argument.)</p>
+        <pre><code class="javascript">initPhotosets(function(){
+  // add your code here
+});</code></pre>
+        Alternatively, if you're calling an already declared function, you can pass it like so:
+        <pre><code class="javascript">initPhotosets(functionName());</code></pre>
+        This functionality may be useful for those who wish to call their own lightbox code, instead of using Tumblr's native lightbox.
+        <p><u>Infinite Scroll</u></p>
+        <p>If you are using infinite scroll, you must call the function again in the infinite scroll function's callback function. </p>
+        <p>If you are using Paul Irish’s infinite scroll code, the callback function is the function that is at the end of all the options.</p>
+        <pre><code class="javascript">$container.infinitescroll({
+  // infinite scroll options
+}, function(items) {
+  initPhotosets(); // if you used a callback function for this before, you must use it again here; if you do not know what a callback is, see above subheading
+  // your other code
+});</code></pre>
+        <p>If you are using David DeSandro’s infinite scroll code, the “callback function” is the function within <code>container.on( 'append.infiniteScroll', function( … ) { code });</code>.</p>
+        <pre><code class="javascript">$container.on( 'append.infiniteScroll', function( event, response, path, items ) {
+  initPhotosets(); // if you used a callback function for this before, you must use it again here; if you do not know what a callback is, see above subheading
+  // your other code
+});
+</code></pre>
+        <p><u>How the Code Works</u></p>
+        <p>A brief explanation of the JavaScript: a class is added to each photo's container <code>&lt;div&gt;</code>, depending on the number of photos in the row. So, instead of having CSS styling for every possible photoset layout, only those classes are styled.</p>
+        <div class="tags"><span>instructions</span><span>install</span></div>
+      </article>
       <article id="questions">
         <div class="text">
           <h3><b>Contact Us</b></h3>
@@ -556,6 +618,8 @@ function lightbox(elem) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.1/SmoothScroll.min.js"></script>
   <script>
+  if (new Date("March 1, 2019").getTime() < new Date().getTime()) document.getElementById("new").style.display = "none";
+
   $(document).ready(function(){
     $('a#scroll-up').click(function(){
       $('html, body').animate({ scrollTop: 0 }, 1500);
