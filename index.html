@@ -5,7 +5,7 @@
   <title>photoset.css</title>
   <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-  <link href="https://dl.dropbox.com/s/vpi3f9s7nhpe7v7/honeybee.css" rel="stylesheet">
+  <link href="//solrainha.github.io/honeybee/honeybee.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
   <style>
@@ -132,7 +132,7 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1em;
   }
-  div#espoirthemes {
+  div#eggdesign {
     text-align: right;
   }
   .blog img, .blog > div {
@@ -145,7 +145,7 @@
     border-radius: 100%;
     box-sizing: border-box;
   }
-  div#espoirthemes img {
+  div#eggdesign img {
     border-color: #fdb443;
   }
   .blog > div {
@@ -160,7 +160,7 @@
     margin-right: 0.35em;
     text-decoration: underline;
   }
-  div#espoirthemes.blog .blog-links a {
+  div#eggdesign.blog .blog-links a {
     margin-left: 0.35em;
     text-decoration: underline;
   }
@@ -228,10 +228,16 @@
     width: 0.75em;
   }
   span#new {
+    /* position: absolute; */
+    /* display: block; */
+    /* top: 0.25em; */
     top: -0.1em;
+    /* left: 0; */
+    /* transform: translateX(calc(-100% - 0.5em)) rotate(-55deg); */
     color: #fff;
     background: #809bbd;
     padding: 0.15em 0.35em;
+    /* border-radius: 1.3em; */
     font-size: 0.7em;
     opacity: 0.5;
     transition-duration: 0.25s;
@@ -381,30 +387,31 @@
             </div>
           </div>
         </div>
-        <div id="espoirthemes" class="blog">
+        <div id="eggdesign" class="blog">
           <div>
-            <a href="https://espoirthemes.tumblr.com/" class="blog-link">espoirthemes</a>
+            <a href="https://eggdesign.tumblr.com/" class="blog-link">eggdesign</a>
             <div class="blog-links">
-              <a href="https://espoirthemes.tumblr.com/">blog</a>
-              <a href="https://espoirthemes.tumblr.com/contact">ask</a>
-              <a href="https://espoirthemes.tumblr.com/themes">themes</a>
+              <a href="https://eggdesign.tumblr.com/">blog</a>
+              <a href="https://eggdesign.tumblr.com/contact">ask</a>
+              <a href="https://eggdesign.tumblr.com/tagged/egg%20theme">themes</a>
             </div>
           </div>
-          <img src="https://api.tumblr.com/v2/blog/espoirthemes.tumblr.com/avatar/96" />
+          <img src="https://api.tumblr.com/v2/blog/eggdesign.tumblr.com/avatar/96" />
         </div>
       </div>
     </header>
     <section id="big-title">
-      <a href="https://espoirthemes.tumblr.com/" title="banner by bridgette" target="_blank"><img src="https://78.media.tumblr.com/e5780d1c255be23654adf7ae549f2975/tumblr_pdya4lDwgq1wc12jxo1_1280.png" alt="css-only photosets banner"></a>
+      <a href="https://eggdesign.tumblr.com/" title="banner by bridgette" target="_blank"><img src="https://78.media.tumblr.com/e5780d1c255be23654adf7ae549f2975/tumblr_pdya4lDwgq1wc12jxo1_1280.png" alt="css-only photosets banner"></a>
     </section>
     <aside>
       <a href="#intro" class="current">introduction <small>general intro</small></a>
       <a href="#info">information <small>build date, by, etc.</small></a>
+      <a href="#license">license <span id="new">new!</span> <small>licensing information</small></a>
       <a href="#install">installation <small>how to use</small></a>
       <a href="#custom">customization <small>how to customize</small></a>
       <a href="#demo">demo <small>see it in action</small></a>
       <a href="#lightbox">lightboxes <small>this needs javascript</small></a>
-      <a href="#js">JS Version <span id="new">new!</span> <small>the lightweight version using JS</small></a>
+      <a href="#js">JS Version <small>the lightweight version using JS</small></a>
       <a href="#questions">questions? <small>send us feedback or inquiries!</small></a>
     </aside>
     <section id="about">
@@ -413,20 +420,34 @@
           <h2>photosets.css</h2>
           <p><i>to everyone who balks at having to use javascript and pxu to style photosets, we see you</i></p>
           <p><b>photosets.css</b> is a CSS stylesheet (compiled by JavaScript, ironically) that lays out all photoset layouts using solely CSS and a nifty photosets variable <code>{PhotosetLayout}</code>. The pictures are arranged using the CSS grid layout, though a fallback using inline blocks has been provided, in case anyone is using a browser that doesn’t support CSS grid.</p>
-          <p><a href="https://annasthms.tumblr.com/post/177359244495/photosetscss-by-annasthms-and-espoirthemes-to" target="_blank">go to post</a></p>
+          <p><a href="https://annasthms.tumblr.com/post/177359244495/photosetscss-by-annasthms-and-eggdesign-to" target="_blank">go to post</a></p>
         </div>
         <div class="tags"><span>introduction</span><span>information</span></div>
       </article>
       <article id="info">
         <div class="text">
           <b>built:</b> july 30, 2018 <br />
-          <b>by:</b> annasthms, espoirthemes <br />
+          <b>by:</b> annasthms, eggdesign <br />
           <p id="change-log"><u>change log</u></p>
           <p>- august 17, 2018: added <code>display:inline-block;</code> fallback for those who don't use browsers that support CSS grid</p>
           <p>- october 7, 2018: added "find out more" link to credits comment</p>
           <p>- january 13, 2019: added a js-modified version to reduce file size and load times</p>
+          <p>- november 21, 2020: added licensing information</p>
         </div>
         <div class="tags"><span>introduction</span><span>information</span></div>
+      </article>
+      <article id="license">
+        <div class="text">
+          <h3><b>Licensing</b></h3>
+          <h4>For Non-Commercial Use:</h4>
+          <p>If you want to use <b>photosets.css</b> in non-commercial projects, you may use it under the terms of the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Creative Commons Attribution-NonCommercial-NoDerivs</a> license. In summary, you may use <b>photosets.css</b> in non-commercial projects, but you may not redistribute <b>photosets.css</b> with or without modifications.</p>
+          <p>Examples of non-commercial projects include, but are not limited to: themes for personal use, themes shared with no intent of monetary compensation.</p>
+          <h4>For Commercial Use:</h4>
+          <p>If you want to use <b>photosets.css</b> in commercial projects, you must purchase a commercial license. Examples of commercial projects include, but are not limited to: commissions, themes shared with intent of monetary compensation (e.g. premium themes, themes shared with Patreon followers).</p>
+          <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfqWsoGuvW_RWv4xv7aloI2znecNkjeUiUT7uoowDjLmLc9aw/viewform" target="_blank">You can purchase a commercial license here.</a></p>
+          <h4>Note: This does not impact any usage of <b>photosets.css</b> prior to November 21, 2020.</h4>
+        </div>
+        <div class="tags"><span>information</span></div>
       </article>
       <article id="install">
         <div class="text">
@@ -607,7 +628,7 @@ function lightbox(elem) {
       <article id="questions">
         <div class="text">
           <h3><b>Contact Us</b></h3>
-          <p>If you have any questions that haven’t been answered, spot any layouts* that are missing, want to suggest a new feature, or simply would like to leave your feedback, please let either one or both of us know! (<a href="https://annasthms.tumblr.com/faq">anna's askbox</a>, <a href="https://espoirthemes.tumblr.com/contact">bridgette's askbox</a>)</p>
+          <p>If you have any questions that haven’t been answered, spot any layouts* that are missing, want to suggest a new feature, or simply would like to leave your feedback, please let either one or both of us know! (<a href="https://annasthms.tumblr.com/faq">anna's askbox</a>, <a href="https://eggdesign.tumblr.com/contact">bridgette's askbox</a>)</p>
           <p><i><small>*a layout is the way the pictures in a photoset are organized; for example: a photoset with a layout of "13" would have two rows &ndash; the first row having one picture, the second row having three pictures</small></i></p>
         </div>
         <div class="tags"><span>questions</span><span>contact</span></div>
@@ -616,9 +637,9 @@ function lightbox(elem) {
   </main>
   <a href="#" id="scroll-up"><span class="th th-up-arrow"></span></a>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.1/SmoothScroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.1/SmoothScroll.min.js"></script> -->
   <script>
-  if (new Date("March 1, 2019").getTime() < new Date().getTime()) document.getElementById("new").style.display = "none";
+  if (new Date("January 1, 2021").getTime() < new Date().getTime()) document.getElementById("new").style.display = "none";
 
   $(document).ready(function(){
     $('a#scroll-up').click(function(){
@@ -645,12 +666,12 @@ function lightbox(elem) {
     var sections = $('article')
       , nav = $('aside');
 
-    var sectionTop = $('section#about').offset().top,
-        navStick = sectionTop - 48;
-
     $(window).on('scroll', function () {
       var cur_pos = $(this).scrollTop();
       var screenHeight = $(this).outerHeight();
+
+      var sectionTop = $('section#about').offset().top,
+          navStick = sectionTop - 48;
 
       nav.find('a').removeClass('current');
       sections.removeClass('current');
